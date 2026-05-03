@@ -5,3 +5,7 @@ def decide_policy(role_id: str) -> Tuple[str, str]:
     if role_id == "health":
         return "gpt-4o", "health-policy"
     return "gpt-4o-mini", "default-policy"
+
+import subprocess
+def dangerous():
+    subprocess.run("ls", shell=True)
