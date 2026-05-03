@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - name: Checkout code
@@ -26,3 +28,7 @@ jobs:
       - name: Basic import check
         run: |
           python -c "import fastapi, pydantic"
+
+      - name: Run tests
+        run: |
+          python -m pytest -q
