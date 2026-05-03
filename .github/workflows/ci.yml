@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - name: Checkout code
@@ -29,4 +31,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -q
+          python -m pytest -q
